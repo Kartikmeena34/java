@@ -1,15 +1,29 @@
-public class Pattern7 {
-    public static void main(String[] args) {
+public class Pattern7{
+    public static void main(String[] args){
         int size=5;
-        for(int i=size;i>0;i--){
-            for (int j=0;j<i;j++) {
-                System.out.print("* ");
-            }System.out.println();
-        }/* */
-        for(int k=2;k<=size;k++){
-            for (int l=0;l<k;l++) {
+        printUpperPart(size);
+        printLowerPart(size,1);
+    }
+    public static void printUpperPart(int n){
+        if (n>0){
+            printStars(n);
+            System.out.println();
+            printUpperPart(n-1);
+        }
+    }
+
+    public static void printLowerPart(int size, int n){
+        if (n<=size){
+            printStars(n);
+            System.out.println();
+            printLowerPart(size,n+1);
+        }
+    }
+
+    public static void printStars(int n){
+        if (n>0){
             System.out.print("* ");
-            }System.out.println();
+            printStars(n-1);
         }
     }
 }
